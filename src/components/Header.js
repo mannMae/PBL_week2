@@ -1,9 +1,11 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import Button from "../elements/Button";
 import Grid from "../elements/Grid";
 
 const Header = () => {
+    const history=useHistory();
 
     const is_login = false
 
@@ -32,10 +34,14 @@ const Header = () => {
             <Grid>
                 <HeaderNav>
                     <Grid>
-                        <Button contents="로그인"/>
+                        <Button _onClick={()=>{
+                            history.push("/login");
+                        }} contents="로그인"/>
                     </Grid>
                     <Grid>
-                        <Button contents="회원가입"/>
+                        <Button  _onClick={()=>{
+                            history.push("/signin");
+                        }} contents="회원가입"/>
                     </Grid>
                 </HeaderNav>
             </Grid>

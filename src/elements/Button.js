@@ -2,16 +2,20 @@ import React from "react";
 import styled from 'styled-components';
 
 const Button = (props) => {
-    const {contents} = props;
+
+    const {contents, _onClick, buttonStyle} = props;
+
     return(
         <>
-            <ButtonBox>{contents}</ButtonBox>
+            <ButtonBox buttonStyle={buttonStyle} onClick={_onClick} >{contents}</ButtonBox>
         </>
     )
 }
 
 Button.defaultProps ={
     contents:null,
+    _onClick:() =>{},
+    buttonStyle:0,
 }
 
 const ButtonBox = styled.button`
@@ -21,7 +25,7 @@ const ButtonBox = styled.button`
     border:2px solid #fff;
     border-radius:10px;
     text-align:center;
-    padding:5px;
+    ${(props) => props.buttonStyle===0?`"";`:props.buttonStyle===1?'height:50px; margin-top:40px':`padding:2px;`}
 `
 
 export default Button;
