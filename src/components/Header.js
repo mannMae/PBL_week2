@@ -5,6 +5,7 @@ const Header = () => {
     return(
         <HeaderBox>
             <h1><a href="/">잉스타</a></h1>
+            
         </HeaderBox>
     )
 }
