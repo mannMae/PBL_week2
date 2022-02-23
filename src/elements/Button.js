@@ -19,14 +19,14 @@ Button.defaultProps ={
 }
 
 const ButtonBox = styled.button`
-    color:#fff;
+   
     font-size:20px;
     background-color:tomato;
     border:2px solid #fff;
     border-radius:10px;
     text-align:center;
     cursor:pointer;
-    ${(props) => props.buttonStyle===0?`"";`:props.buttonStyle===1?'height:50px;':`padding:2px;`}
+    ${(props) => props.buttonStyle===0?`" color:#fff;";`:props.buttonStyle===1?'height:50px;':props.buttonStyle===2?`color:#eda3ef;` :`padding:2px;`}
 `
 
 export default Button;

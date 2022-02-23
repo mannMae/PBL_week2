@@ -9,6 +9,8 @@ const Post = (props) => {
 
   const {user_info, image_url, contents, like_cnt, insert_dt, is_me} = props;
 
+  const liked = true;
+
     return (
       <React.Fragment>
         <Grid is_flex={true} padding="10px">
@@ -24,9 +26,12 @@ const Post = (props) => {
           </Grid>
           <Image shape="rectangle" size="500" src={image_url}/>
         </Grid>
-        <Grid>
+        <Grid is_flex={true}>
           <Text children={`좋아요 ${like_cnt}개`}/>
-          </Grid>
+          {liked
+          ?<Button buttonStyle={2} contents="❤"/>
+          :<Button  contents="❤"/>}
+        </Grid>
       </React.Fragment>
     );
 }
