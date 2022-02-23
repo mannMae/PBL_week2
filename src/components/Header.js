@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import Button from "../elements/Button";
@@ -7,8 +7,7 @@ import Grid from "../elements/Grid";
 const Header = () => {
     const history=useHistory();
 
-    const is_login = true
-
+    const [is_login, setIsLogin] = useState(false);
     if(is_login){
         return(
             <HeaderBox>
@@ -18,7 +17,12 @@ const Header = () => {
             <Grid>
                 <HeaderNav>
                 <Grid>
-                        <Button contents="로그아웃"/>
+                        <Button _onClick={()=>{
+                            console.log(is_login)
+                            setIsLogin(false);
+                            console.log(is_login)
+                            history.push("/");
+                        }} contents="로그아웃"/>
                     </Grid>
                     <Grid>
                         <Button _onClick={()=>{
@@ -49,6 +53,9 @@ const Header = () => {
                         }} contents="회원가입"/>
                     </Grid>
                 </HeaderNav>
+                <button onClick={()=>{
+                    setIsLogin(true);
+                }}/>
             </Grid>
         </HeaderBox>
     )

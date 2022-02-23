@@ -25,6 +25,7 @@ const ButtonBox = styled.button`
     border:2px solid #fff;
     border-radius:10px;
     text-align:center;
+    cursor:pointer;
     ${(props) => props.buttonStyle===0?`"";`:props.buttonStyle===1?'height:50px;':`padding:2px;`}
 `
 

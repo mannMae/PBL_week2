@@ -6,6 +6,7 @@ import Grid from "./elements/Grid";
 import Login from "./pages/Login";
 import Notice from "./pages/Notice";
 import Signin from "./pages/Signup";
+import Write from "./pages/Write";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path ="/login" exact component={Login}/>
           <Route path ="/signin" exact component={Signin}/>
           <Route path ="/notice" exact component={Notice}/>
+          <Route path ="/write" exact component={Write}/>
         </Switch>
       </Grid>
     </div>
