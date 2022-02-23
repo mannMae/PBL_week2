@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Button from '../elements/Button';
 import Input from '../elements/Input';
 
-const Signin = () =>{
+const Signup = () =>{
     const history = useHistory();
     return(
         <SigninForm>
@@ -44,4 +44,4 @@ const Buttons = styled.div`
     justify-content:space-around;
 `
 
-export default Signin;
+export default Signup;

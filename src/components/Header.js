@@ -1,37 +1,39 @@
 import React, { useState } from "react";
+
+import { useSelector, useDispatch } from "react-redux";
+import { actionCreators as userActions } from "../redux/modules/user";
+import { apiKey } from "../shared/firebase";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import Button from "../elements/Button";
 import Grid from "../elements/Grid";
 
-const Header = () => {
+const Header = (props) => {
+    const dispatch = useDispatch();
     const history=useHistory();
+    const is_login = useSelector((state) => state.user.is_login)
 
-    const [is_login, setIsLogin] = useState(false);
     if(is_login){
         return(
             <HeaderBox>
-            <Grid is_flex padding="20px 30px">
-                <Title><a href="/">잉스타</a></Title>
-            </Grid>
-            <Grid>
-                <HeaderNav>
+                <Grid is_flex padding="20px 30px">
+                    <Title><a href="/">잉스타</a></Title>
+                </Grid>
                 <Grid>
-                        <Button _onClick={()=>{
-                            console.log(is_login)
-                            setIsLogin(false);
-                            console.log(is_login)
-                            history.push("/");
-                        }} contents="로그아웃"/>
-                    </Grid>
+                    <HeaderNav>
                     <Grid>
-                        <Button _onClick={()=>{
-                            history.push("/notice");
-                        }} contents="알림"/>
-                    </Grid>
-                </HeaderNav>
-            </Grid>
-        </HeaderBox>
+                            <Button _onClick={()=>{
+                                history.push("/");
+                            }} contents="로그아웃"/>
+                        </Grid>
+                        <Grid>
+                            <Button _onClick={()=>{
+                                history.push("/notice");
+                            }} contents="알림"/>
+                        </Grid>
+                    </HeaderNav>
+                </Grid>
+            </HeaderBox>
         )
     }
 
@@ -49,12 +51,11 @@ const Header = () => {
                     </Grid>
                     <Grid>
                         <Button  _onClick={()=>{
-                            history.push("/signin");
+                            history.push("/signup");
                         }} contents="회원가입"/>
                     </Grid>
                 </HeaderNav>
                 <button onClick={()=>{
-                    setIsLogin(true);
                 }}/>
             </Grid>
         </HeaderBox>

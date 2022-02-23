@@ -31,9 +31,11 @@ const Post = (props) => {
         </Grid>
         <Grid is_flex={true}>
           <Text children={`좋아요 ${like_cnt}개`}/>
-          {liked
-          ?<Button buttonStyle={2} contents="❤"/>
-          :<Button  contents="❤"/>}
+          <Grid width="90%" textAlign="right">
+            {liked
+            ?<Button buttonStyle={2} contents="❤"/>
+            :<Button  contents="❤"/>}
+          </Grid>
         </Grid>
       </React.Fragment>
     );

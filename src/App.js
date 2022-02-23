@@ -7,7 +7,7 @@ import Button from "./elements/Button";
 import Grid from "./elements/Grid";
 import Login from "./pages/Login";
 import Notice from "./pages/Notice";
-import Signin from "./pages/Signup";
+import Signup from "./pages/Signup";
 import Write from "./pages/Write";
 import PostingList from "./pages/PostingList";
 
@@ -24,7 +24,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={PostingList}/>
           <Route path="/login" exact component={Login}/>
-          <Route path="/signin" exact component={Signin}/>
+          <Route path="/signup" exact component={Signup}/>
           <Route path="/notice" exact component={Notice}/>
           <Route path="/write" exact component={Write}/>
         </Switch>

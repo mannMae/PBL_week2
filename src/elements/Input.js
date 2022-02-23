@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Input = (props) => {
 
-    const {placeholder, label, type} = props;
+    const {placeholder, label, type, _onChange} = props;
 
     const styles={
         placeholder:placeholder,
@@ -13,7 +13,7 @@ const Input = (props) => {
     return(
         <>
             <InputLabel>{label}</InputLabel>
-            <InputBox type={`${type}`} {...styles}></InputBox>
+            <InputBox type={`${type}`} {...styles} onChange={_onChange}></InputBox>
         </>
     )
 }
@@ -22,6 +22,7 @@ Input.defaultProps={
     placeholder:null,
     label:null,
     type:0,
+    _onChange:()=>{},
 }
 
 const InputLabel = styled.label`
