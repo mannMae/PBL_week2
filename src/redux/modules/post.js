@@ -39,6 +39,7 @@ const initailPost = {
     contents:"",
     like_cnt:0,
     insert_dt : moment().format("YYYY-MM-DD hh:mm:ss"),
+    liked_users:[],
 };
 
 const addPostFB = (contents="", ) =>{

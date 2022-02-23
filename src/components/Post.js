@@ -8,8 +8,8 @@ import Text from "../elements/Text";
 const Post = (props) => {
 
   console.log(props)
-  const liked = true;
-
+  const liked = props.user_info.user_name
+  console.log(typeof(sessionStorage.getItem("firebase:authUser:AIzaSyA-1qKm9cvFoefTDDZfL21Bc2I-He8eSC4:[DEFAULT]")))
     return (
       <React.Fragment>
         <Grid is_flex={true} padding="10px">
@@ -32,8 +32,11 @@ const Post = (props) => {
           <Text children={`좋아요 ${props.like_cnt}개`}/>
           <Grid width="90%" textAlign="right">
             {liked
-            ?<Button buttonStyle={2} contents="❤"/>
-            :<Button  contents="❤"/>}
+            ?<Button buttonStyle={2} contents="❤" _onClick={()=>{
+            }}/>
+            :<Button  contents="❤" _onClick={()=>{
+              
+            }}/>}
           </Grid>
         </Grid>
       </React.Fragment>

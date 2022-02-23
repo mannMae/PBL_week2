@@ -98,9 +98,9 @@ const loginCheckFB = () => {
       if(user){
         dispatch(
           setUser({
-            user_name: user.displayName,
+            user_name: user.userNick,
             user_profile: "",
-            id: user.email,
+            id: user.id,
             uid: user.uid,
           })
         );
@@ -136,8 +136,7 @@ export default handleActions(
         draft.is_login = false;
       }),
     [GET_USER]: (state, action) => produce(state, (draft) => {}),
-  },
-  initialState
+  }, initialState
 );
 
 // action creator export
