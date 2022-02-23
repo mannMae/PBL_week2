@@ -7,7 +7,7 @@ import Grid from "../elements/Grid";
 const Header = () => {
     const history=useHistory();
 
-    const is_login = false
+    const is_login = true
 
     if(is_login){
         return(
@@ -17,8 +17,13 @@ const Header = () => {
             </Grid>
             <Grid>
                 <HeaderNav>
-                    <Grid>
+                <Grid>
                         <Button contents="로그아웃"/>
+                    </Grid>
+                    <Grid>
+                        <Button _onClick={()=>{
+                            history.push("/notice");
+                        }} contents="알림"/>
                     </Grid>
                 </HeaderNav>
             </Grid>
@@ -59,6 +64,7 @@ const HeaderBox = styled.header`
 
 const Title = styled.h1`
     & a{
+        font-size:40px;
         color:#fff;
         text-decoration:none;
     }
