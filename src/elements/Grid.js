@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Grid = (props) =>{
 
-    const { children, is_flex, width, padding, margin, bg, center, _onClick } = props;
+    const { children, is_flex, width, padding, margin, bg, center, _onClick, textAlign } = props;
 
     const styles = {
         is_flex:is_flex,
@@ -12,6 +12,7 @@ const Grid = (props) =>{
         margin:margin,
         bg:bg,
         center:center,
+        textAlign:textAlign,
     }
 
     return(
@@ -29,6 +30,7 @@ Grid.defaultProps ={
   margin: false,
   bg: false,
   center:false,
+  textAlign:false,
   _onClick:()=>{},
 }
 
@@ -40,9 +42,10 @@ const GridBox = styled.div`
     ${(props) => (props.bg ? `background-color: ${props.bg};` : "")}
     ${(props) =>
         props.is_flex
-        ? `display:flex; align-items:center; justify-content: space-between; `
+        ? `display:flex; align-items:center; justify-content: space-aroun; `
         : ""}
     ${(props) => props.center ? 'text-align:center' : ""}
+    ${(props) => (props.textAlign==="right" ?`text-align:right;` : "")}
 `
 
 

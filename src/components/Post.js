@@ -18,7 +18,10 @@ const Post = (props) => {
             <Image src={user_info.user_profile}></Image>
             <Text children={user_info.user_name}></Text>
           </Grid>
-          <Text children={insert_dt}/>
+          <Grid textAlign="right">
+            <Text children={insert_dt}/>
+            <Button contents="수정"></Button>
+          </Grid>
         </Grid>
         <Grid padding="16px">
           <Grid padding="10px">
@@ -45,7 +48,7 @@ Post.defaultProps = {
   contents: "제주도 멋지다",
   like_cnt: 0,
   insert_dt: "2022-02-20 10:00:00",
-  is_me:false,
+  is_me:true,
 };
 
 export default Post;
