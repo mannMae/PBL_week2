@@ -30,11 +30,9 @@ const Login = () => {
             <h2>로그인</h2>
             <Input type="text" label="아이디" _onChange={(e)=>{
                 setId(e.target.value);
-                console.log(id)
             }}/>
             <Input type="password" label="비밀번호" _onChange={(e)=>{
                 setPwd(e.target.value);
-                console.log(pwd)
             }}/>
             <Buttons>
                 <Button buttonStyle={1} _onClick={()=>{

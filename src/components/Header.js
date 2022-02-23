@@ -55,8 +55,6 @@ const Header = (props) => {
                         }} contents="회원가입"/>
                     </Grid>
                 </HeaderNav>
-                <button onClick={()=>{
-                }}/>
             </Grid>
         </HeaderBox>
     )

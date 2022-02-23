@@ -36,7 +36,7 @@ const initailPost = {
     // },
     image_url : "https://a.cdn-hotels.com/gdcs/production69/d1911/913619a9-f618-47db-b2a2-3ca277ad2226.jpg",
     contents:"",
-    comment_cnt:0,
+    like_cnt:0,
     insert_dt : moment().format("YYYY-MM-DD hh:mm:ss"),
 };
 
@@ -141,28 +141,6 @@ const getPostFB = (start=null, size=3) => {
             dispatch(setPOST(post_list, paging));
         });
 
-    //     postDB.get().then((docs) =>{
-            // let post_list = [];
-            // docs.forEach((doc) =>{
-
-            //     let _post = doc.data();
-                
-            //     //
-            //     let post = Object.keys(_post).reduce((acc, cur)=>{
-            //         if(cur.indexOf("user_") !== -1){
-            //             return  {...acc, user_info:{...acc.user_info, [cur]:_post[cur]}
-            //         }
-            //         }
-            //         return {...acc, [cur]:_post[cur]}
-            //     }, {id:doc.id, user_info:{}})
-
-            //     post_list.push(post);
-            // })
-
-            // console.log(post_list);
-
-            // dispatch(setPOST(post_list));
-    //     })
     }
 }
 
