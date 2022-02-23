@@ -52,22 +52,22 @@ const loginFB = (id, pwd) => {
   };
 };
 
-const signupFB = (id, pwd, user_name) => {
+const signupFB = (userId, userPwd, userNick) => {
   return function (dispatch, getState, { history }) {
     auth
-      .createUserWithEmailAndPassword(id, pwd)
+      .createUserWithEmailAndPassword(userId, userPwd)
       .then((user) => {
         console.log(user);
 
         auth.currentUser
           .updateProfile({
-            displayName: user_name,
+            displayName: userNick,
           })
           .then(() => {
             dispatch(
               setUser({
-                user_name: user_name,
-                id: id,
+                user_nick: userNick,
+                id: userId,
                 user_profile: "",
                 uid: user.user.uid,
               })
@@ -82,6 +82,7 @@ const signupFB = (id, pwd, user_name) => {
         // ...
       })
       .catch((error) => {
+        console.log(userPwd);
         var errorCode = error.code;
         var errorMessage = error.message;
 

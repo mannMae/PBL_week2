@@ -23,7 +23,7 @@ const Header = (props) => {
                     <HeaderNav>
                     <Grid>
                             <Button _onClick={()=>{
-                                history.push("/");
+                                dispatch(userActions.logOut({}))
                             }} contents="로그아웃"/>
                         </Grid>
                         <Grid>
