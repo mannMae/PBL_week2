@@ -1,6 +1,6 @@
 import { ConnectedRouter } from "connected-react-router";
 import React from "react";
-import { useHistory, Route, Switch } from "react-router-dom";
+import { useHistory, Route} from "react-router-dom";
 
 import Header from "./components/Header";
 import Button from "./elements/Button";
@@ -21,13 +21,13 @@ function App() {
       <Grid>
         <Header>
         </Header>
-        <Switch>
+        <ConnectedRouter history={history}>
           <Route path="/" exact component={PostingList}/>
           <Route path="/login" exact component={Login}/>
           <Route path="/signup" exact component={Signup}/>
           <Route path="/notice" exact component={Notice}/>
           <Route path="/write" exact component={Write}/>
-        </Switch>
+        </ConnectedRouter>
         {is_login?<Button _onClick={()=>{
           history.push("/write")
         }} contents={"+"}/> : null}

@@ -7,30 +7,29 @@ import Text from "../elements/Text";
 
 const Post = (props) => {
 
-  const {user_info, image_url, contents, like_cnt, insert_dt, is_me} = props;
-
+  console.log(props)
   const liked = true;
 
     return (
       <React.Fragment>
         <Grid is_flex={true} padding="10px">
           <Grid is_flex={true} width="10vw">
-            <Image src={user_info.user_profile}></Image>
-            <Text children={user_info.user_name}></Text>
+            <Image src={props.user_info.user_profile}></Image>
+            <Text children={props.user_info.user_name}></Text>
           </Grid>
           <Grid textAlign="right">
-            <Text children={insert_dt}/>
+            <Text children={props.insert_dt}/>
             <Button contents="수정"></Button>
           </Grid>
         </Grid>
         <Grid padding="16px">
           <Grid padding="10px">
-            <Text children={contents}/>
+            <Text children={props.contents}/>
           </Grid>
-          <Image shape="rectangle" size="500" src={image_url}/>
+          <Image shape="rectangle" size="500" src={props.image_url}/>
         </Grid>
         <Grid is_flex={true}>
-          <Text children={`좋아요 ${like_cnt}개`}/>
+          <Text children={`좋아요 ${props.like_cnt}개`}/>
           <Grid width="90%" textAlign="right">
             {liked
             ?<Button buttonStyle={2} contents="❤"/>
