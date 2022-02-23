@@ -17,6 +17,7 @@ const addPOST = createAction(ADD_POST, (post) => ({post}));
 const editPOST = createAction(EDIT_POST, (post_id, post) => ({
     post_id,
     post,
+    is_loading:false,
   }));
   
 
@@ -44,12 +45,14 @@ const addPostFB = (contents="", ) =>{
     return function (dispatch, getState, {history}){
         const postDB = firestore.collection("post");
         const _user = getState().user.user;
+        console.log(_user)
 
         const user_info = {
-            user_name:_user.user_name,
+            user_name:_user.id,
             user_id:_user.uid,
-            user_profile:_user.user_profile
+            user_profile:_user.user_profile,
         }
+        console.log(user_info)
         const _post = {
             ...initailPost,
             contents: contents,

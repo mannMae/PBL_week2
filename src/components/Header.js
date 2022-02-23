@@ -17,7 +17,7 @@ const Header = (props) => {
         return(
             <HeaderBox>
                 <Grid is_flex padding="20px 30px">
-                    <Title><a href="/">잉스타</a></Title>
+                    <Title onClick={()=>{history.push("/")}}>잉스타</Title>
                 </Grid>
                 <Grid>
                     <HeaderNav>
@@ -40,7 +40,7 @@ const Header = (props) => {
     return(
         <HeaderBox>
             <Grid is_flex padding="20px 30px">
-                <Title><a href="/">잉스타</a></Title>
+            <Title onClick={()=>{history.push("/")}}>잉스타</Title>
             </Grid>
             <Grid>
                 <HeaderNav>
@@ -69,11 +69,10 @@ const HeaderBox = styled.header`
 `
 
 const Title = styled.h1`
-    & a{
-        font-size:40px;
-        color:#fff;
-        text-decoration:none;
-    }
+    font-size:40px;
+    color:#fff;
+    text-decoration:none;
+    cursor:pointer;
 `
 
 const HeaderNav = styled.nav`

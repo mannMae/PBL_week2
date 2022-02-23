@@ -20,7 +20,7 @@ const Write = (props) =>{
     const [contents, setContents] = useState("");
 
     const addPost = () =>{
-        dispatch(postActions.addPostFB())
+        dispatch(postActions.addPostFB(contents))
     }
 
     const changeContents = (e) => {
