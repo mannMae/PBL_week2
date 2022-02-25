@@ -27,7 +27,7 @@ const Write = (props) =>{
         setContents(e.target.value);
     }
 
-    if(!is_login){
+     if(!is_login){
         return(
             <Grid>
                 <Text>로그인이 필요합니다</Text>

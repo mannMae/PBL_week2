@@ -1,15 +1,48 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "../elements/Button";
 import Grid from "../elements/Grid";
 import Image from "../elements/Image";
 import Text from "../elements/Text";
+import { actionCreators as postActions} from "../redux/modules/post";
+import { actionCreators as likeActions } from "../redux/modules/like";
 
 
 const Post = (props) => {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user)
+  const [isMine, setIsMine] =useState(false);
+  const [liked, setLiked] = useState();
+  const is_login = useSelector((state) => state.user.is_login)
 
-  console.log(props)
-  const liked = props.user_info.user_name
-  console.log(typeof(sessionStorage.getItem("firebase:authUser:AIzaSyA-1qKm9cvFoefTDDZfL21Bc2I-He8eSC4:[DEFAULT]")))
+  const likeobj = {
+    "pqvs3z6WgFqAGe2iuN4k":["a@a.com", "b@b.com", "c@c.com", "d@d.com"],
+    "R2lvW8rfJGYmibkll15t":["a@a.com", "b@b.com", "c@c.com", "d@d.com"],
+    "pqvs3z6WgFqAGe2iuN4k":["a@a.com", "b@b.com", "c@c.com", "d@d.com"],
+    "R2lvW8rfJGYmibkll15t":["a@a.com", "b@b.com", "c@c.com", "d@d.com"],
+  }
+  console.log(props.like_cnt)  
+  useEffect(()=>{
+    setIsMine(props.user_info.user_name===user?.user?.id?true : false)
+  },[user])
+
+  useEffect(()=>{
+    if(props.id in likeobj){
+      if(likeobj[props.id].includes(user?.user?.id)){
+        setLiked(true)  
+      }
+    } else{
+      setLiked(false)
+    }  
+  },[])
+  
+  const plusLikeCnt =() =>{
+    dispatch(likeActions.plusLikeCntFB(props.id))
+  }
+
+  const minusLikeCnt =() =>{
+    dispatch(likeActions.minusLikeCntFB(props.id))
+  }
     return (
       <React.Fragment>
         <Grid is_flex={true} padding="10px">
@@ -19,7 +52,7 @@ const Post = (props) => {
           </Grid>
           <Grid textAlign="right">
             <Text children={props.insert_dt}/>
-            <Button contents="수정"></Button>
+            {isMine ? <Button contents="수정"></Button> : null}
           </Grid>
         </Grid>
         <Grid padding="16px">
@@ -31,12 +64,17 @@ const Post = (props) => {
         <Grid is_flex={true}>
           <Text children={`좋아요 ${props.like_cnt}개`}/>
           <Grid width="90%" textAlign="right">
-            {liked
+            {is_login?<>{liked
             ?<Button buttonStyle={2} contents="❤" _onClick={()=>{
+              setLiked(false)
+              minusLikeCnt()
             }}/>
             :<Button  contents="❤" _onClick={()=>{
-              
-            }}/>}
+              setLiked(true)              
+              plusLikeCnt()
+            }}/>}</>
+            :<Button  contents="❤"/>}
+            
           </Grid>
         </Grid>
       </React.Fragment>

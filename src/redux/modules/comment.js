@@ -85,7 +85,7 @@ export default handleActions(
   {
       [SET_COMMENT]: (state, action) => produce(state, (draft) => {
         console.log(action.payload.comment_list)
-        draft.list[action.payload.post_id] = action.payload.comment_list;
+        draft.list[action.payload.post_id] = action.payload.like_list;
       }),
       [ADD_COMMENT]: (state, action) => produce(state, (draft)=> {
         draft.list[action.payload.post_id].unshift(action.payload.comment);

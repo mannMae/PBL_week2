@@ -39,7 +39,6 @@ const initailPost = {
     contents:"",
     like_cnt:0,
     insert_dt : moment().format("YYYY-MM-DD hh:mm:ss"),
-    liked_users:[],
 };
 
 const addPostFB = (contents="", ) =>{
@@ -154,7 +153,6 @@ const editPostFB = (post_id = null, post = {}) => {
         console.log("게시물 정보가 없어요!");
         return;
       }
-  
       const _image = getState().image.preview;
   
       const _post_idx = getState().post.list.findIndex((p) => p.id === post_id);
@@ -250,12 +248,14 @@ export default handleActions(
             draft.list.unshift(action.payload.post);
         }),
         [LOADING] : (state, action) => produce(state, (draft) => {
+          console.log(draft)
             draft.is_loading = action.payload.is_loading
         }),
         [EDIT_POST]: (state, action) =>
         produce(state, (draft) => {
           let idx = draft.list.findIndex((p) => p.id === action.payload.post_id);
-  
+          console.log(action.payload.post)
+          console.log(draft.list[idx])
           draft.list[idx] = { ...draft.list[idx], ...action.payload.post };
         }),
     }, initialState
